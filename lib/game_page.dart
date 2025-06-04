@@ -90,9 +90,11 @@ class _GamePageState extends State<GamePage> {
 
         setState(() {
           occupied[index] = currentPlayer;
-          changeTurn();
           checkForWinner();
           checkForDraw();
+          if (!gameEnd) {
+            changeTurn();
+          }
         });
       },
       child: Container(
